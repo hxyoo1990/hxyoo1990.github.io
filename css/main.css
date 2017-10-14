@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 2;
   color: #555;
   background: #f5f7f9;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 h1,
@@ -224,53 +224,54 @@ h4,
 h5,
 h6 {
   margin: 20px 0 15px;
+  color: RGB(0, 125, 197);
 }
 h1 {
-  font-size: 22px;
+  font-size: 32px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 18px;
+    font-size: 28px;
   }
 }
 h2 {
-  font-size: 20px;
+  font-size: 30px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 16px;
+    font-size: 26px;
   }
 }
 h3 {
-  font-size: 18px;
+  font-size: 28px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 14px;
+    font-size: 24px;
   }
 }
 h4 {
-  font-size: 16px;
+  font-size: 26px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 12px;
+    font-size: 22px;
   }
 }
 h5 {
-  font-size: 14px;
+  font-size: 24px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 10px;
+    font-size: 20px;
   }
 }
 h6 {
-  font-size: 12px;
+  font-size: 22px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: 8px;
+    font-size: 18px;
   }
 }
 p {
@@ -329,6 +330,12 @@ kbd {
   background-image: -webkit-linear-gradient(top, #eee, #fff, #eee);
   padding: 0.1em 0.3em;
   white-space: nowrap;
+}
+b {
+  color: RGB(165, 42, 42);
+}
+strong {
+  color: RGB(165, 42, 42);
 }
 .text-left {
   text-align: left;
@@ -939,10 +946,10 @@ pre .javascript .function {
 .btn {
   display: inline-block;
   padding: 0 20px;
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
   background: #fff;
-  border: 2px solid #555;
+  border: 1px solid #555;
   text-decoration: none;
   border-radius: 2px;
   transition-property: background-color;
@@ -952,9 +959,9 @@ pre .javascript .function {
   line-height: 2;
 }
 .btn:hover {
-  border-color: #222;
+  border-color: RGB(0, 125, 197);
   color: #fff;
-  background: #222;
+  background: RGB(0, 125, 197);
 }
 .btn +.btn {
   margin: 0 0 8px 8px;
@@ -1097,7 +1104,7 @@ pre .javascript .function {
 }
 .headband {
   height: 3px;
-  background: #222;
+  background: RGB(0, 125, 197);
 }
 .site-meta {
   margin: 0;
@@ -1129,13 +1136,13 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 15px;
   color: #ddd;
 }
 .use-motion .brand {
@@ -1238,7 +1245,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1456,7 +1463,7 @@ pre .javascript .function {
 .posts-expand .post-title {
   text-align: center;
   word-break: break-word;
-  font-weight: 400;
+  font-weight: 600;
 }
 .posts-expand .post-title-link {
   display: inline-block;
@@ -1746,13 +1753,13 @@ pre .javascript .function {
 .site-author-name {
   margin: 0;
   text-align: center;
-  color: #222;
+  color: RGB(0, 125, 197);
   font-weight: 600;
 }
 .site-description {
   margin-top: 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
   color: #999;
 }
 .site-state {
@@ -1780,7 +1787,7 @@ pre .javascript .function {
   font-size: 16px;
 }
 .site-state-item-name {
-  font-size: 13px;
+  font-size: 14px;
   color: #999;
 }
 .feed-link {
@@ -1823,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2a61ad;
+  background: #6fcc69;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1861,7 +1868,7 @@ pre .javascript .function {
   color: #555;
 }
 .sidebar-nav li:hover {
-  color: #fc6423;
+  color: RGB(0, 125, 197);
 }
 .page-post-detail .sidebar-nav-toc {
   padding: 0 5px;
@@ -1870,11 +1877,11 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #fc6423;
-  border-bottom-color: #fc6423;
+  color: RGB(0, 125, 197);
+  border-bottom-color: RGB(0, 125, 197);
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #fc6423;
+  color: RGB(0, 125, 197);
 }
 .sidebar-panel {
   display: none;
@@ -1933,14 +1940,14 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #fc6423;
-  border-bottom-color: #fc6423;
+  color: RGB(0, 125, 197);
+  border-bottom-color: RGB(0, 125, 197);
 }
 .post-toc .nav .active-current > a {
-  color: #fc6423;
+  color: RGB(0, 125, 197);
 }
 .post-toc .nav .active-current > a:hover {
-  color: #fc6423;
+  color: RGB(0, 125, 197);
 }
 .footer {
   font-size: 14px;
@@ -2590,7 +2597,7 @@ pre .javascript .function {
   }
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #fc6423;
+  background: RGB(0, 125, 197);
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -2753,7 +2760,7 @@ pre .javascript .function {
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: #222;
+  background: RGB(0, 125, 197);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
@@ -2806,6 +2813,7 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  font-size: 15px;
 }
 .menu .menu-item a:hover,
 .menu-item-active a {
@@ -2904,15 +2912,15 @@ pre .javascript .function {
 }
 .feed-link a {
   display: block;
-  color: #fc6423;
+  color: RGB(0, 125, 197);
   border: none;
 }
 .feed-link a:hover {
   background: none;
-  color: #e34603;
+  color: RGB(0, 125, 197);
 }
 .feed-link a:hover i {
-  color: #e34603;
+  color: RGB(0, 125, 197);
 }
 .links-of-author {
   display: flex;
