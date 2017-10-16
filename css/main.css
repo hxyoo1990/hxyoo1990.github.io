@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.8;
   color: #555;
   background: #f5f7f9;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 h1,
@@ -235,43 +235,43 @@ h1 {
   }
 }
 h2 {
-  font-size: 30px;
+  font-size: 29px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 26px;
+    font-size: 25px;
   }
 }
 h3 {
-  font-size: 28px;
-}
-@media (max-width: 767px) {
-  h3 {
-    font-size: 24px;
-  }
-}
-h4 {
   font-size: 26px;
 }
 @media (max-width: 767px) {
-  h4 {
+  h3 {
     font-size: 22px;
   }
 }
+h4 {
+  font-size: 23px;
+}
+@media (max-width: 767px) {
+  h4 {
+    font-size: 19px;
+  }
+}
 h5 {
-  font-size: 24px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 h6 {
-  font-size: 22px;
+  font-size: 17px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: 18px;
+    font-size: 13px;
   }
 }
 p {
@@ -1245,7 +1245,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1830,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1759f2;
+  background: #a209d0;
 }
 .links-of-blogroll {
   font-size: 13px;

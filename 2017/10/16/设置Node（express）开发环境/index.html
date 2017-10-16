@@ -87,7 +87,7 @@
 <meta property="og:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/10/16/images/expresswelcome.png">
-<meta property="og:updated_time" content="2017-10-16T06:02:19.408Z">
+<meta property="og:updated_time" content="2017-10-16T07:09:56.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置Node（express）开发环境">
 <meta name="twitter:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
@@ -307,8 +307,7 @@
 <p>转到<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
 <p>选择按钮下载“推荐给大多数用户”的LTS版本。</p>
 <p>通过双击下载的文件并按照安装提示安装node（node中自带NPM）。</p>
-<h3 id="1-1-测试您的Node和NPM安装"><a href="#1-1-测试您的Node和NPM安装" class="headerlink" title="1.1 测试您的Node和NPM安装"></a>1.1 测试您的Node和NPM安装</h3><p>测试该节点的最简单方法是在终端/命令提示符下运行“version”命令，并检查是否返回版本字符串：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;node -v</div><div class="line"></div><div class="line">v6.11.3</div></pre></td></tr></table></figure>
+<h3 id="1-1-测试您的Node和NPM安装"><a href="#1-1-测试您的Node和NPM安装" class="headerlink" title="1.1 测试您的Node和NPM安装"></a>1.1 测试您的Node和NPM安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;node -v</div><div class="line"></div><div class="line">v6.11.3</div></pre></td></tr></table></figure>
 <p>NodeJS包管理器NPM也应该安装了，可以以同样的方式进行测试：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;npm -v</div><div class="line"></div><div class="line">3.10.10</div></pre></td></tr></table></figure>
 <h2 id="2-使用NPM将Express导入到应用程序中（为什么要做这个？）"><a href="#2-使用NPM将Express导入到应用程序中（为什么要做这个？）" class="headerlink" title="2. 使用NPM将Express导入到应用程序中（为什么要做这个？）"></a>2. 使用NPM将Express导入到应用程序中（为什么要做这个？）</h2><p>将Express库安装到myapp目录中。软件包将自动保存到您的package.json文件中的依赖关系列表中</p>
@@ -323,7 +322,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Run the helloworld on Windows</span></div><div class="line"></div><div class="line">SET DEBUG=helloworld:* &amp; npm start</div><div class="line"></div><div class="line"><span class="comment"># Run helloworld on Linux/Mac OS X</span></div><div class="line"></div><div class="line">DEBUG=helloworld:* npm start</div></pre></td></tr></table></figure>
 <p>DEBUG命令创建有用的日志记录，产生如下所示的输出：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;SET DEBUG=helloworld:* &amp; npm start</div><div class="line"></div><div class="line">&gt; helloworld@0.0.0 start D:\Github\expresstests\helloworld</div><div class="line"></div><div class="line">&gt; node ./bin/www</div><div class="line"></div><div class="line">helloworld:server Listening on port 3000 +0ms</div></pre></td></tr></table></figure>
-<p>打开浏览器并导航到<a href="http://127.0.0.1:3000/" target="_blank" rel="external">http://127.0.0.1:3000/</a>查看默认的快速欢迎页面:</p>
+<p>打开浏览器并导航到 <a href="http://127.0.0.1:3000/" target="_blank" rel="external">http://127.0.0.1:3000/</a> 查看默认的快速欢迎页面:</p>
 <p><img src="../images/expresswelcome.png" alt="express 欢迎页面"></p>
 
       
