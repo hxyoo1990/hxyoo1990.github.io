@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="Jacky">
 <meta property="og:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/public/css/images/expresswelcome.png">
-<meta property="og:updated_time" content="2017-10-16T02:18:19.722Z">
+<meta property="og:image" content="http://yoursite.com/2017/10/16/images/expresswelcome.png">
+<meta property="og:updated_time" content="2017-10-16T03:30:17.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置Node（express）开发环境">
 <meta name="twitter:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
-<meta name="twitter:image" content="http://yoursite.com/public/css/images/expresswelcome.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/16/images/expresswelcome.png">
 
 
 
@@ -307,7 +307,7 @@
 <p>转到<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
 <p>选择按钮下载“推荐给大多数用户”的LTS版本。</p>
 <p>通过双击下载的文件并按照安装提示安装node（node中自带NPM）。</p>
-<h3 id="测试您的Node和NPM安装"><a href="#测试您的Node和NPM安装" class="headerlink" title="测试您的Node和NPM安装"></a>测试您的Node和NPM安装</h3><p>测试该节点的最简单方法是在终端/命令提示符下运行“version”命令，并检查是否返回版本字符串：</p>
+<h3 id="1-1测试您的Node和NPM安装"><a href="#1-1测试您的Node和NPM安装" class="headerlink" title="1.1测试您的Node和NPM安装"></a>1.1测试您的Node和NPM安装</h3><p>测试该节点的最简单方法是在终端/命令提示符下运行“version”命令，并检查是否返回版本字符串：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;node -v</div><div class="line"></div><div class="line">v6.11.3</div></pre></td></tr></table></figure>
 <p>NodeJS包管理器NPM也应该安装了，可以以同样的方式进行测试：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;npm -v</div><div class="line"></div><div class="line">3.10.10</div></pre></td></tr></table></figure>
@@ -324,7 +324,7 @@
 <p>DEBUG命令创建有用的日志记录，产生如下所示的输出：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;SET DEBUG=helloworld:* &amp; npm start</div><div class="line"></div><div class="line">&gt; helloworld@0.0.0 start D:\Github\expresstests\helloworld</div><div class="line"></div><div class="line">&gt; node ./bin/www</div><div class="line"></div><div class="line">helloworld:server Listening on port 3000 +0ms</div></pre></td></tr></table></figure>
 <p>打开浏览器并导航到<a href="http://127.0.0.1:3000/" target="_blank" rel="external">http://127.0.0.1:3000/</a>查看默认的快速欢迎页面:</p>
-<p><img src="/public/css/images/expresswelcome.png" alt="express 欢迎页面"></p>
+<p><img src="../images/expresswelcome.png" alt="express 欢迎页面"></p>
 
       
     </div>
@@ -345,22 +345,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/10/16/hello-world/" rel="next" title="你好法萨芬范德萨发生就会打发啊发顺丰结合具体会让发放">
-                <i class="fa fa-chevron-left"></i> 你好法萨芬范德萨发生就会打发啊发顺丰结合具体会让发放
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -438,7 +422,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -473,11 +457,11 @@
           <div class="post-toc">
 
             
-              
+                <!--原值 list_number：theme.toc.number-->
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装Node"><span class="nav-number">1.</span> <span class="nav-text">1.安装Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试您的Node和NPM安装"><span class="nav-number">1.1.</span> <span class="nav-text">测试您的Node和NPM安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用NPM将Express导入到应用程序中（为什么要做这个？）"><span class="nav-number">2.</span> <span class="nav-text">2.使用NPM将Express导入到应用程序中（为什么要做这个？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何使用Express-Application-Generator工具创建应用程序，然后运行它们"><span class="nav-number">3.</span> <span class="nav-text">3.如何使用Express Application Generator工具创建应用程序，然后运行它们</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装Node"><span class="nav-text">1.安装Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1测试您的Node和NPM安装"><span class="nav-text">1.1测试您的Node和NPM安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用NPM将Express导入到应用程序中（为什么要做这个？）"><span class="nav-text">2.使用NPM将Express导入到应用程序中（为什么要做这个？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何使用Express-Application-Generator工具创建应用程序，然后运行它们"><span class="nav-text">3.如何使用Express Application Generator工具创建应用程序，然后运行它们</span></a></li></ol></div>
             
 
           </div>
