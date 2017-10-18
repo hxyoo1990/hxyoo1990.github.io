@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="Jacky">
 <meta property="og:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/10/16/expresswelcome.png">
-<meta property="og:updated_time" content="2017-10-18T07:55:01.363Z">
+<meta property="og:image" content="http://yoursite.com/expresswelcome.png">
+<meta property="og:updated_time" content="2017-10-18T07:58:21.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置Node（express）开发环境">
 <meta name="twitter:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
-<meta name="twitter:image" content="http://yoursite.com/2017/10/16/expresswelcome.png">
+<meta name="twitter:image" content="http://yoursite.com/expresswelcome.png">
 
 
 
@@ -323,7 +323,7 @@
 <p>DEBUG命令创建有用的日志记录，产生如下所示的输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;SET DEBUG=express-locallibrary:* &amp; npm start</div><div class="line"></div><div class="line">&gt; express-locallibrary@0.0.0 start D:\express-locallibrary</div><div class="line"></div><div class="line">&gt; node ./bin/www</div><div class="line"></div><div class="line">express-locallibrary:server Listening on port 3000 +0ms</div></pre></td></tr></table></figure>
 <p>打开浏览器并导航到<a href="">http://127.0.0.1:3000/</a>查看默认的快速欢迎页面:</p>
-<p><img src="../expresswelcome.png" alt="express 欢迎页面"></p>
+<p><img src="/expresswelcome.png" alt="express 欢迎页面"></p>
 <h2 id="4-使用nodemon实现服务自动重启"><a href="#4-使用nodemon实现服务自动重启" class="headerlink" title="4. 使用nodemon实现服务自动重启"></a>4. 使用nodemon实现服务自动重启</h2><p>到目前为止，每次你对Express网站进行更改时，必须停止并重新启动服务器才能生效，这很快会让人感到恼火。因此，我们需要借助一个工具在文件有更改时可以自动重启服务。</p>
 <p>能帮我们达到这个目的的最简单的工具之一：<strong>nodemon</strong>。使用以下命令安装nodemon：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev nodemon</div></pre></td></tr></table></figure>
