@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
+<meta name="description" content="本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。涉及的相关概念有 scheme  声明方法 主要的字段（field）类型 基本的验证  model  存取model数据的一些主要方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设置Node（express）开发环境">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/设置Node（express）开发环境/index.html">
+<meta property="og:title" content="通过mongoose使用mongoDB数据库">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/通过mongoose使用mongoDB数据库/index.html">
 <meta property="og:site_name" content="Jacky">
-<meta property="og:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
+<meta property="og:description" content="本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。涉及的相关概念有 scheme  声明方法 主要的字段（field）类型 基本的验证  model  存取model数据的一些主要方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/expresswelcome.png">
-<meta property="og:updated_time" content="2017-10-18T01:54:13.681Z">
+<meta property="og:updated_time" content="2017-10-18T01:54:39.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设置Node（express）开发环境">
-<meta name="twitter:description" content="为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。">
-<meta name="twitter:image" content="http://yoursite.com/images/expresswelcome.png">
+<meta name="twitter:title" content="通过mongoose使用mongoDB数据库">
+<meta name="twitter:description" content="本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。涉及的相关概念有 scheme  声明方法 主要的字段（field）类型 基本的验证  model  存取model数据的一些主要方法">
 
 
 
@@ -121,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/16/设置Node（express）开发环境/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/通过mongoose使用mongoDB数据库/"/>
 
 
 
 
 
-  <title>设置Node（express）开发环境 | Jacky</title>
+  <title>通过mongoose使用mongoDB数据库 | Jacky</title>
   
 
 
@@ -234,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/设置Node（express）开发环境/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/通过mongoose使用mongoDB数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄显毅">
@@ -251,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设置Node（express）开发环境</h1>
+          <h1 class="post-title" itemprop="name headline">通过mongoose使用mongoDB数据库</h1>
         
 
         <div class="post-meta">
@@ -263,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T10:10:17+08:00">
-                2017-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T17:12:05+08:00">
+                2017-10-17
               </time>
             
 
@@ -301,29 +299,17 @@
       
 
       
-        <p>为了使用Express，您首先必须在操作系统上安装Nodejs和Node Package Manager（NPM）。以下部分介绍在Ubuntu Linux 16.04，Mac OS X和Windows 10上安装NodeJs的长期支持（LTS）版本的最简单方法。<br><a id="more"></a></p>
-<h2 id="1-安装Node"><a href="#1-安装Node" class="headerlink" title="1. 安装Node"></a>1. 安装Node</h2><p>在Windows和Mac OS X上安装Node和NPM是直截了当的，因为您只需使用提供的安装程序：</p>
-<p>下载所需的安装程序：</p>
-<p>转到<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
-<p>选择按钮下载“推荐给大多数用户”的LTS版本。</p>
-<p>通过双击下载的文件并按照安装提示安装node（node中自带NPM）。</p>
-<h3 id="1-1-测试您的Node和NPM安装"><a href="#1-1-测试您的Node和NPM安装" class="headerlink" title="1.1 测试您的Node和NPM安装"></a>1.1 测试您的Node和NPM安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;node -v</div><div class="line"></div><div class="line">v6.11.3</div></pre></td></tr></table></figure>
-<p>NodeJS包管理器NPM也应该安装了，可以以同样的方式进行测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;npm -v</div><div class="line"></div><div class="line">3.10.10</div></pre></td></tr></table></figure>
-<h2 id="2-使用NPM将Express导入到应用程序中（为什么要做这个？）"><a href="#2-使用NPM将Express导入到应用程序中（为什么要做这个？）" class="headerlink" title="2. 使用NPM将Express导入到应用程序中（为什么要做这个？）"></a>2. 使用NPM将Express导入到应用程序中（为什么要做这个？）</h2><p>将Express库安装到myapp目录中。软件包将自动保存到您的package.json文件中的依赖关系列表中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install express</div></pre></td></tr></table></figure>
-<h2 id="3-如何使用Express-Application-Generator工具创建应用程序，然后运行它们"><a href="#3-如何使用Express-Application-Generator工具创建应用程序，然后运行它们" class="headerlink" title="3. 如何使用Express Application Generator工具创建应用程序，然后运行它们"></a>3. 如何使用Express Application Generator工具创建应用程序，然后运行它们</h2><p>您可以使用NPM安装，如图所示（该-g标志在全局安装工具，以便您可以从任何地方调用）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install express-generator -g</div></pre></td></tr></table></figure>
-<p>Express应用程序生成器生成一个Express应用程序“骨架”。要使用默认设置创建一个名为“helloworld”的Express应用程序，请跳转到要创建的目录下并运行命令，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">express helloworld</div></pre></td></tr></table></figure>
-<p>使用NPM安装helloworld应用程序的所有依赖项，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd helloworld</div><div class="line"></div><div class="line">npm install</div></pre></td></tr></table></figure>
-<p>然后运行应用程序（Windows和Linux / Mac的命令略有不同），如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># Run the helloworld on Windows</div><div class="line"></div><div class="line">SET DEBUG=helloworld:* &amp; npm start</div><div class="line"></div><div class="line"># Run helloworld on Linux/Mac OS X</div><div class="line"></div><div class="line">DEBUG=helloworld:* npm start</div></pre></td></tr></table></figure>
-<p>DEBUG命令创建有用的日志记录，产生如下所示的输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;SET DEBUG=helloworld:* &amp; npm start</div><div class="line"></div><div class="line">&gt; helloworld@0.0.0 start D:\Github\expresstests\helloworld</div><div class="line"></div><div class="line">&gt; node ./bin/www</div><div class="line"></div><div class="line">helloworld:server Listening on port 3000 +0ms</div></pre></td></tr></table></figure>
-<p>打开浏览器并导航到<a href="">http://127.0.0.1:3000/</a>查看默认的快速欢迎页面:</p>
-<p><img src="/images/expresswelcome.png" alt="express 欢迎页面"></p>
+        <p>本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。涉及的相关概念有</p>
+<p><strong>scheme</strong></p>
+<ul>
+<li>声明方法</li>
+<li>主要的字段（field）类型</li>
+<li>基本的验证</li>
+</ul>
+<p><strong>model</strong></p>
+<ul>
+<li>存取model数据的一些主要方法</li>
+</ul>
 
       
     </div>
@@ -348,15 +334,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/10/16/设置Node（express）开发环境/" rel="next" title="设置Node（express）开发环境">
+                <i class="fa fa-chevron-left"></i> 设置Node（express）开发环境
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/17/通过mongoose使用mongoDB数据库/" rel="prev" title="通过mongoose使用mongoDB数据库">
-                通过mongoose使用mongoDB数据库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -408,17 +394,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -466,22 +443,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-                <!--原值 list_number：theme.toc.number-->
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装Node"><span class="nav-text">1. 安装Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-测试您的Node和NPM安装"><span class="nav-text">1.1 测试您的Node和NPM安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用NPM将Express导入到应用程序中（为什么要做这个？）"><span class="nav-text">2. 使用NPM将Express导入到应用程序中（为什么要做这个？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何使用Express-Application-Generator工具创建应用程序，然后运行它们"><span class="nav-text">3. 如何使用Express Application Generator工具创建应用程序，然后运行它们</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
