@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/21/boostrap若干修改难点的解决方案/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2017/10/21/boostrap若干修改难点的解决方案/" itemprop="url">bootstrap中若干修改难点的解决方案</a></h1>
         
 
         <div class="post-meta">
@@ -302,13 +302,14 @@
 
       
         
-          
-            <hr>
-<h2 id="title-bootstrap中若干修改难点的解决方案"><a href="#title-bootstrap中若干修改难点的解决方案" class="headerlink" title="title:bootstrap中若干修改难点的解决方案"></a>title:bootstrap中若干修改难点的解决方案</h2><h2 id="1-修改navbar的高度（height）"><a href="#1-修改navbar的高度（height）" class="headerlink" title="1. 修改navbar的高度（height）"></a>1. 修改navbar的高度（height）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.navbar</span> &#123;</div><div class="line">  <span class="attribute">min-height</span>: <span class="number">30px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">32px</span>; <span class="comment">/* 不能小于min-height */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-在navbar-nav-li-a之间插入与字体等高的分隔线"><a href="#2-在navbar-nav-li-a之间插入与字体等高的分隔线" class="headerlink" title="2. 在navbar-nav li a之间插入与字体等高的分隔线"></a>2. 在navbar-nav li a之间插入与字体等高的分隔线</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.navbar-nav</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">padding-top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding-bottom</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">margin-top</span>: <span class="number">9px</span>; <span class="comment">/* 为了居中 */</span></div><div class="line">  <span class="attribute">line-height</span>: <span class="number">13px</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-nav</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">border-right</span>: solid <span class="number">1px</span> <span class="number">#999</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.navbar-nav</span>&gt;<span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&gt;<span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">border-right</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-修改行内元素的相对高度"><a href="#3-修改行内元素的相对高度" class="headerlink" title="3. 修改行内元素的相对高度"></a>3. 修改行内元素的相对高度</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 第一种方法：*/</span></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">35px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 第二种方法：*/</span></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">margin-top</span>: <span class="number">9px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <p>本人在工作中使用bootstrap布局网页时，遇到一些修改需求，当时花了不少时间才跨过这些坑，本篇文章即是对这些填坑方法的总结。希望达到的目的：1、总结经验，提高效率；2、能帮到遇到类似问题的同志。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/21/boostrap若干修改难点的解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
