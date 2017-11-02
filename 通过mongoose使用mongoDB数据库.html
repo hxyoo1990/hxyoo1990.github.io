@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jacky">
 <meta property="og:description" content="本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-19T08:53:20.489Z">
+<meta property="og:updated_time" content="2017-11-02T07:20:11.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过mongoose使用mongoDB数据库">
 <meta name="twitter:description" content="本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。">
@@ -238,10 +238,18 @@
         
         
           <p>本篇文章将通过一个实例介绍如何通过mongoose使用mongoDB数据库。<br><a id="more"></a></p>
-<p>涉及的相关概念有</p>
-<p><strong>scheme</strong></p>
+<h2 id="1-选择什么数据库"><a href="#1-选择什么数据库" class="headerlink" title="1. 选择什么数据库?"></a>1. 选择什么数据库?</h2><p>Express应用程序可以使用Node支持的任何数据库（Express本身并没有定义任何具体的额外行为/数据库管理要求）。 有很多流行的选项，包括PostgreSQL，MySQL，Redis，SQLite和MongoDB。</p>
+<p>在选择数据库时，您应该考虑到生产时间/学习曲线，性能，易于复制/备份，成本，社区支持等等。虽然没有一个“最佳”数据库，几乎任何流行的解决方案 对于像我们的本地图书馆这样的中小型网站来说，应该是可以接受的。</p>
+<h2 id="2-怎么操作数据库？"><a href="#2-怎么操作数据库？" class="headerlink" title="2. 怎么操作数据库？"></a>2. 怎么操作数据库？</h2><p>有两种与数据库交互的方法：</p>
+<p>使用数据库的本机查询语言（例如SQL）</p>
+<p>使用对象数据模型（“ODM”）/对象关系模型（“ORM”）。 ODM / ORM将网站的数据表示为JavaScript对象，然后将其映射到底层数据库。一些ORM与特定的数据库绑定，而其他ORM提供了一个数据库不可知后端。</p>
+<p>使用SQL或数据库支持的查询语言可以获得最佳性能。 ODM通常较慢，因为它们使用翻译代码来映射对象和数据库格式，这可能不会使用最有效的数据库查询（如果ODM支持不同的数据库后端，则尤其如此，并且必须对数据库进行更大的妥协支持功能）。</p>
+<p>使用ORM的好处是，程序员可以继续思考JavaScript对象而不是数据库语义 - 如果您需要使用不同的数据库（在相同或不同的网站上），这一点尤其如此。它们也提供了一个明显的地方进行数据的验证和检查。</p>
+<h2 id="3-选择Mongoose和MongoDb"><a href="#3-选择Mongoose和MongoDb" class="headerlink" title="3. 选择Mongoose和MongoDb"></a>3. 选择Mongoose和MongoDb</h2><p>对于本地库示例（和本主题的其余部分），我们将使用Mongoose ODM来访问我们的库数据。 Mongoose作为MongoDB的前端，MongoDB是一个使用面向文档的数据模型的开源NoSQL数据库。 MongoDB数据库中的“文档”的“集合”类似于关系数据库中“行”的“表”。</p>
+<p>这种ODM和数据库组合在Node社区中非常受欢迎，部分原因是文档存储和查询系统看起来非常像JSON，因此JavaScript开发人员很熟悉。</p>
+<h2 id="4-学习mongoose的主要概念"><a href="#4-学习mongoose的主要概念" class="headerlink" title="4. 学习mongoose的主要概念"></a>4. 学习mongoose的主要概念</h2><p><strong>schema</strong></p>
 <ul>
-<li>声明方法</li>
+<li>定义方法</li>
 <li>主要的字段（field）类型</li>
 <li>基本的验证</li>
 </ul>
@@ -249,7 +257,10 @@
 <ul>
 <li>存取model数据的一些主要方法</li>
 </ul>
-
+<h3 id="schems的定义："><a href="#schems的定义：" class="headerlink" title="schems的定义："></a>schems的定义：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//import mongoose module</span></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Define schema</span></div><div class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</div><div class="line"></div><div class="line"><span class="keyword">var</span> AuthorSchema = Schema(</div><div class="line">  &#123;</div><div class="line">    first_name: &#123;<span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">max</span>: <span class="number">100</span>&#125;,</div><div class="line">    family_name: &#123;<span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">max</span>: <span class="number">100</span>&#125;,</div><div class="line">    date_of_birth: &#123;<span class="attr">type</span>: <span class="built_in">Date</span>&#125;,</div><div class="line">    date_of_death: &#123;<span class="attr">type</span>: <span class="built_in">Date</span>&#125;,</div><div class="line">  &#125;</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// Virtual for author's full name</span></div><div class="line">AuthorSchema</div><div class="line">.virtual(<span class="string">'name'</span>)</div><div class="line">.get(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.family_name + <span class="string">', '</span> + <span class="keyword">this</span>.first_name;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Virtual for author's URL</span></div><div class="line">AuthorSchema</div><div class="line">.virtual(<span class="string">'url'</span>)</div><div class="line">.get(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">'/catalog/author/'</span> + <span class="keyword">this</span>._id;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//Compile model from schema and Export it</span></div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">'Author'</span>, AuthorSchema);</div></pre></td></tr></table></figure>
+<h3 id="schemad的字段类型："><a href="#schemad的字段类型：" class="headerlink" title="schemad的字段类型："></a>schemad的字段类型：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> schema = <span class="keyword">new</span> Schema(</div><div class="line">&#123;</div><div class="line">  name: <span class="built_in">String</span>,</div><div class="line">  binary: Buffer,</div><div class="line">  living: <span class="built_in">Boolean</span>,</div><div class="line">  updated: &#123; <span class="attr">type</span>: <span class="built_in">Date</span>, <span class="attr">default</span>: <span class="built_in">Date</span>.now &#125;,</div><div class="line">  age: &#123; <span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">min</span>: <span class="number">18</span>, <span class="attr">max</span>: <span class="number">65</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">  mixed: Schema.Types.Mixed,</div><div class="line">  _someId: Schema.Types.ObjectId,</div><div class="line">  array: [],</div><div class="line">  ofString: [<span class="built_in">String</span>], <span class="comment">// You can also have an array of each of the other types too.</span></div><div class="line">  nested: &#123; <span class="attr">stuff</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">lowercase</span>: <span class="literal">true</span>, <span class="attr">trim</span>: <span class="literal">true</span> &#125; &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="schema字段的验证："><a href="#schema字段的验证：" class="headerlink" title="schema字段的验证："></a>schema字段的验证：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> breakfastSchema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">    eggs: &#123;</div><div class="line">      type: <span class="built_in">Number</span>,</div><div class="line">      min: [<span class="number">6</span>, <span class="string">'Too few eggs'</span>],</div><div class="line">      max: <span class="number">12</span></div><div class="line">      required: [<span class="literal">true</span>, <span class="string">'Why no bacon?'</span>]</div><div class="line">    &#125;,</div><div class="line">    drink: &#123;</div><div class="line">      type: <span class="built_in">String</span>,</div><div class="line">      enum: [<span class="string">'Coffee'</span>, <span class="string">'Tea'</span>, <span class="string">'Water'</span>,]</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<h3 id="Virtual特性："><a href="#Virtual特性：" class="headerlink" title="Virtual特性："></a>Virtual特性：</h3>
         
       </div>
       
@@ -291,8 +302,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -340,6 +360,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+                <!--原值 list_number：theme.toc.number-->
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-选择什么数据库"><span class="nav-text">1. 选择什么数据库?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-怎么操作数据库？"><span class="nav-text">2. 怎么操作数据库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-选择Mongoose和MongoDb"><span class="nav-text">3. 选择Mongoose和MongoDb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-学习mongoose的主要概念"><span class="nav-text">4. 学习mongoose的主要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#schems的定义："><span class="nav-text">schems的定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#schemad的字段类型："><span class="nav-text">schemad的字段类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#schema字段的验证："><span class="nav-text">schema字段的验证：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual特性："><span class="nav-text">Virtual特性：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
